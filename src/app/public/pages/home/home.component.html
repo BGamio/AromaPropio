@@ -1,0 +1,19 @@
+<div class="container">
+  <h1 class="title">Personaliza tu Perfume</h1>
+  <div class="perfume-grid">
+    <div class="perfume-card" *ngFor="let perfume of perfumes">
+      <img [src]="perfume.photoUrl.url" [alt]="perfume.name" class="perfume-image" />
+      <div class="card-content">
+        <h2 class="perfume-name">{{ perfume.name }}</h2>
+        <div class="tags">
+          <span class="badge classification">{{ perfume.perfumesClassification.name }}</span>
+          <span class="badge family">{{ perfume.olfactoryFamilies.name }}</span>
+        </div>
+        <p class="notes-label">Notas:</p>
+        <div class="notes">
+          <button class="note-button" *ngFor="let note of perfume.notes">{{ note }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

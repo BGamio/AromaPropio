@@ -1,0 +1,107 @@
+/* Contenedor general */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Título principal */
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+/* Grid para las tarjetas de perfume */
+.perfume-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Estilo de cada tarjeta */
+.perfume-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Imagen del perfume */
+.perfume-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Contenido de la tarjeta */
+.card-content {
+  padding: 20px;
+}
+
+/* Nombre del perfume */
+.perfume-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Contenedor de etiquetas */
+.tags {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para los badges */
+.badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: white;
+  background-color: #6c757d; /* color por defecto */
+}
+
+.classification {
+  color: #6c757d;
+  background-color: #dddddd; /* color para la clasificación */
+}
+
+.family {
+  color: #6c757d;
+  background-color: white; /* color para la familia olfativa */
+  border: 1px solid #6c757d;
+}
+
+/* Etiqueta de "Notas" */
+.notes-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Contenedor de notas */
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Botones de notas */
+.note-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.note-button:hover {
+  background-color: #444; /* color al pasar el mouse */
+}

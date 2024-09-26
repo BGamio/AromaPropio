@@ -1,0 +1,60 @@
+<div class="perfume-creator">
+  <div class="summary-panel">
+    <h3>Resumen de tu perfume</h3>
+    <div class="summary-content">
+      <p>Clasificación: {{ selectedClassification }}</p>
+      <p>Familia: {{ selectedFamily }}</p>
+      <p>Aromas: {{ selectedScents }}</p>
+      <h4>Precio Total: {{ getTotalPrice() | currency:'EUR':'symbol':'1.2-2' }}</h4>
+    </div>
+    <button (click)="onPay()" class="pay-button" [disabled]="!perfumeForm.valid">Pagar ahora</button>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Crea/Personaliza tu perfume</h2>
+    </div>
+    <div class="card-content">
+      <form [formGroup]="perfumeForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="classification">Clasificación de perfume</label>
+          <select id="classification" formControlName="classification" class="form-control">
+            <option value="">Selecciona una clasificación</option>
+            <option *ngFor="let classification of perfumeClassifications" [value]="classification.value">
+              {{ classification.label }} ({{ classification.price | currency:'EUR':'symbol':'1.2-2' }})
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="family">Familia olfativa</label>
+          <select id="family" formControlName="family" class="form-control">
+            <option value="">Selecciona una familia olfativa</option>
+            <option *ngFor="let family of olfactoryFamilies" [value]="family.value">
+              {{ family.label }} - {{ family.description }} ({{ family.price | currency:'EUR':'symbol':'1.2-2' }})
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Selecciona los aromas (puedes elegir varios)</label>
+          <div class="scent-buttons">
+            <button
+              type="button"
+              *ngFor="let scent of scents; trackBy: trackByFn"
+              (click)="toggleScent(scent.value)"
+              [class.selected]="perfumeForm.get('scents')?.value?.includes(scent.value)"
+              class="scent-button"
+              [attr.aria-label]="scent.label + ' - ' + (scent.price | currency:'SOL':'symbol':'1.2-2')"
+            >
+              <i class="icon-{{scent.icon}}"></i>
+              <span class="sr-only">{{ scent.label }} - {{ scent.price | currency:'SOL':'symbol':'1.2-2' }}</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-button" [disabled]="!perfumeForm.valid">Crear Perfume</button>
+      </form>
+    </div>
+  </div>
+</div>
